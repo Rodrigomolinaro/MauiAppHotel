@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using Font = Microsoft.Maui.Font;
+using MauiAppHotel.Views;
 
 namespace MauiAppHotel
 {
@@ -9,6 +10,9 @@ namespace MauiAppHotel
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute("Sobre", typeof(Sobre));
+            Routing.RegisterRoute("ContratacaoHospedagem", typeof(ContratacaoHospedagem));
+
             var currentTheme = Application.Current!.RequestedTheme;
             ThemeSegmentedControl.SelectedIndex = currentTheme == AppTheme.Light ? 0 : 1;
         }

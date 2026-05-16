@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.Sobre"
+             Title="Sobre o App">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15" BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
+
+            <Image Source="appicon.png" 
+                   HeightRequest="120" 
+                   WidthRequest="120" 
+                   HorizontalOptions="Center" 
+                   Margin="0,20,0,10" />
+
+            <Label Text="App Hotel" 
+                   FontSize="28" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="{StaticResource Primary}" />
+
+            <Label Text="Versão 1.0.0" 
+                   FontSize="14" 
+                   HorizontalOptions="Center" 
+                   TextColor="{StaticResource Gray400}" 
+                   Margin="0,0,0,20" />
+
+            <Frame CornerRadius="10" 
+                   Padding="15" 
+                   BackgroundColor="{AppThemeBinding Light={StaticResource Light}, Dark={StaticResource Dark}}" 
+                   BorderColor="{StaticResource Primary}" 
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Desenvolvedor" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           TextColor="{StaticResource Primary}" />
+
+                    <Label Text="Rodrigo Molinaro" 
+                           FontSize="18" 
+                           FontAttributes="Bold" />
+
+                    <Label Text="Estudante de Desenvolvimento de Sistemas na ETEC e apaixonado por tecnologia. Em fase de transição de carreira para o desenvolvimento de software, aliando a disciplina e precisão de um Piloto de Linha Aérea (PLA) com a criação de novas soluções digitais." 
+                           FontSize="14" 
+                           LineBreakMode="WordWrap" />
+
+                    <Label Text="Local: Caraguatatuba, SP" 
+                           FontSize="14" 
+                           FontAttributes="Italic" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="10" 
+                   Padding="15" 
+                   BackgroundColor="{AppThemeBinding Light={StaticResource Light}, Dark={StaticResource Dark}}" 
+                   BorderColor="{StaticResource Primary}" 
+                   HasShadow="True">
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Detalhes do Projeto" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           TextColor="{StaticResource Primary}" />
+
+                    <Label Text="Ano de Desenvolvimento: 2026" 
+                           FontSize="16" />
+
+                    <Label Text="Projeto desenvolvido em C# com .NET MAUI, aplicando conceitos de interface gráfica, layout responsivo e navegação." 
+                           FontSize="14" 
+                           LineBreakMode="WordWrap" />
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

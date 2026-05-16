@@ -5,8 +5,40 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.SegmentedControl;assembly=Syncfusion.Maui.Toolkit"
     xmlns:pages="clr-namespace:MauiAppHotel.Pages"
+    xmlns:views="clr-namespace:MauiAppHotel.Views" 
     Shell.FlyoutBehavior="Flyout"
     Title="MauiAppHotel">
+
+    <FlyoutItem Title="Hospedagem" Icon="home.png">
+        <ShellContent 
+            ContentTemplate="{DataTemplate views:ContratacaoHospedagem}" 
+            Route="ContratacaoHospedagem" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Sobre">
+        <Shell.ItemTemplate>
+            <DataTemplate>
+                <Grid ColumnDefinitions="45, *" Padding="10" BackgroundColor="Transparent">
+                    <Label Text="ℹ" 
+                           FontSize="20" 
+                           TextColor="Red" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center" />
+
+                    <Label Grid.Column="1" 
+                           Text="Sobre" 
+                           TextColor="Red" 
+                           FontAttributes="Bold" 
+                           VerticalOptions="Center" 
+                           FontSize="16" />
+                </Grid>
+            </DataTemplate>
+        </Shell.ItemTemplate>
+
+        <ShellContent 
+            ContentTemplate="{DataTemplate views:Sobre}" 
+            Route="Sobre" />
+    </FlyoutItem>
 
     <ShellContent
         Title="Dashboard"
