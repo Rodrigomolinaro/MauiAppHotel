@@ -29,8 +29,10 @@ namespace MauiAppHotel
         {
             InitializeComponent();
 
+            Application.Current.UserAppTheme = AppTheme.Dark;
+
             // AQUI ESTÁ A CORREÇÃO: Dizer ao app para usar o AppShell (o menu lateral)
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new Views.Inicio());
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

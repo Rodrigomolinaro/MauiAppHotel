@@ -1,5 +1,6 @@
-using System; // Força o VS a carregar as extensões de Data (AddDays, AddMonths)
+using System;
 using Microsoft.Maui.Controls;
+using MauiAppHotel.Models;
 
 namespace MauiAppHotel.Views;
 
@@ -14,21 +15,18 @@ public partial class ContratacaoHospedagem : ContentPage
         PropriedadesApp = (App)Application.Current;
         pck_quarto.ItemsSource = PropriedadesApp.lista_quartos;
 
-        // 1. Configuração inicial do Check-in
         dtpck_checkin.MaximumDate = DateTime.Now.AddMonths(1);
         dtpck_checkin.MinimumDate = DateTime.Now;
 
-        // 2. Configuração inicial do Check-out
         dtpck_checkout.MaximumDate = DateTime.Now.AddMonths(6);
         dtpck_checkout.MinimumDate = DateTime.Now.AddDays(1);
     }
 
     private void dtpck_checkin_DateSelected(object sender, DateChangedEventArgs e)
     {
-        // Forçando o C# a reconhecer o tipo correto armazenando em uma variável explícita
-        DateTime dataSelecionada = e.NewDate.Value;
+        // Força a conversão segura para evitar o erro CS0266
+        DateTime dataSelecionada = (DateTime)e.NewDate;
 
-        // 3. Atualização do Check-out usando a variável limpa
         dtpck_checkout.MaximumDate = dataSelecionada.AddMonths(6);
         dtpck_checkout.MinimumDate = dataSelecionada.AddDays(1);
     }
@@ -37,7 +35,23 @@ public partial class ContratacaoHospedagem : ContentPage
     {
         try
         {
-            await Navigation.PushAsync(new HospedagemContratada());
+            if (pck_quarto.SelectedItem == null)
+                throw new Exception("Por favor, selecione uma suíte.");
+
+            if (stp_adultos.Value == 0 && stp_criancas.Value == 0)
+                throw new Exception("Por favor, informe a quantidade de hóspedes.");
+
+            Hospedagem h = new Hospedagem
+            {
+                QuartoSelecionado = (Quarto)pck_quarto.SelectedItem,
+                QtdAdultos = (int)stp_adultos.Value,
+                QtdCriancas = (int)stp_criancas.Value,
+                // Força a conversão segura para evitar o erro CS0266
+                DataCheckIn = (DateTime)dtpck_checkin.Date,
+                DataCheckOut = (DateTime)dtpck_checkout.Date
+            };
+
+            await Navigation.PushAsync(new HospedagemContratada(h));
         }
         catch (Exception ex)
         {

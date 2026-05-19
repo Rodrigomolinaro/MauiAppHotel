@@ -50,7 +50,7 @@
 
         <Button Text="Voltar"
                 HorizontalOptions="Center"
-                Clicked="Button_Clicked" />
+                Clicked="Voltar_Clicked" />
 
     </VerticalStackLayout>
 
