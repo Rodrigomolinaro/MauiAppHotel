@@ -6,12 +6,12 @@ namespace MauiAppHotel.Views;
 
 public partial class HospedagemContratada : ContentPage
 {
-    // Este construtor agora pede o objeto Hospedagem (Isto resolve o erro CS1729!)
+    
     public HospedagemContratada(Hospedagem hospedagem)
     {
         InitializeComponent();
 
-        // Liga os dados recebidos à interface visual
+        
         BindingContext = hospedagem;
     }
 
@@ -19,7 +19,7 @@ public partial class HospedagemContratada : ContentPage
     {
         try
         {
-            // Retorna diretamente para a primeira página do aplicativo (Tela de Início)
+            
             await Navigation.PopToRootAsync();
         }
         catch (Exception ex)

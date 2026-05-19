@@ -10,10 +10,10 @@ namespace MauiAppHotel.Models
         public DateTime DataCheckIn { get; set; }
         public DateTime DataCheckOut { get; set; }
 
-        // Calcula a quantidade de dias da estadia (diferença entre Check-out e Check-in)
+        
         public int Estadia => DataCheckOut.Subtract(DataCheckIn).Days;
 
-        // Calcula o valor total da hospedagem
+        
         public double ValorTotal
         {
             get

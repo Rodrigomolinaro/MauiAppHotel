@@ -24,7 +24,7 @@ public partial class ContratacaoHospedagem : ContentPage
 
     private void dtpck_checkin_DateSelected(object sender, DateChangedEventArgs e)
     {
-        // Força a conversão segura para evitar o erro CS0266
+        
         DateTime dataSelecionada = (DateTime)e.NewDate;
 
         dtpck_checkout.MaximumDate = dataSelecionada.AddMonths(6);
@@ -46,7 +46,7 @@ public partial class ContratacaoHospedagem : ContentPage
                 QuartoSelecionado = (Quarto)pck_quarto.SelectedItem,
                 QtdAdultos = (int)stp_adultos.Value,
                 QtdCriancas = (int)stp_criancas.Value,
-                // Força a conversão segura para evitar o erro CS0266
+                
                 DataCheckIn = (DateTime)dtpck_checkin.Date,
                 DataCheckOut = (DateTime)dtpck_checkout.Date
             };
