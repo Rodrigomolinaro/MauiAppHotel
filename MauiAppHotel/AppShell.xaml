@@ -9,36 +9,23 @@
     Shell.FlyoutBehavior="Flyout"
     Title="MauiAppHotel">
 
-    <FlyoutItem Title="Hospedagem" Icon="home.png">
+    <FlyoutItem Title="Início" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:Inicio}" Route="Inicio" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Hospedagem" Icon="bed.png">
         <ShellContent 
             ContentTemplate="{DataTemplate views:ContratacaoHospedagem}" 
             Route="ContratacaoHospedagem" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Sobre">
-        <Shell.ItemTemplate>
-            <DataTemplate>
-                <Grid ColumnDefinitions="45, *" Padding="10" BackgroundColor="Transparent">
-                    <Label Text="ℹ" 
-                           FontSize="20" 
-                           TextColor="Red" 
-                           VerticalOptions="Center" 
-                           HorizontalOptions="Center" />
-
-                    <Label Grid.Column="1" 
-                           Text="Sobre" 
-                           TextColor="Red" 
-                           FontAttributes="Bold" 
-                           VerticalOptions="Center" 
-                           FontSize="16" />
-                </Grid>
-            </DataTemplate>
-        </Shell.ItemTemplate>
-
+    <FlyoutItem Title="Sobre" Icon="info.png">
         <ShellContent 
             ContentTemplate="{DataTemplate views:Sobre}" 
             Route="Sobre" />
     </FlyoutItem>
+
+    
 
     <ShellContent
         Title="Dashboard"

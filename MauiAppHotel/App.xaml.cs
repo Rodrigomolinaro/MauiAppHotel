@@ -6,6 +6,14 @@ namespace MauiAppHotel
     {
         public List<Quarto> lista_quartos = new List<Quarto>
         {
+           new Quarto()
+            {
+            Descricao = "Suíte Super Luxo",
+            ValorDiariaAdulto = 110.0,
+            ValorDiariaCrianca = 55.0
+        },
+
+
             new Quarto()
             {
             Descricao = "Suíte Luxo",
@@ -32,7 +40,7 @@ namespace MauiAppHotel
             Application.Current.UserAppTheme = AppTheme.Dark;
 
             
-            MainPage = new NavigationPage(new Views.Inicio());
+            MainPage = new AppShell();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

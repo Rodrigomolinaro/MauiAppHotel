@@ -11,17 +11,20 @@ namespace MauiAppHotel.Models
         public DateTime DataCheckOut { get; set; }
 
         
-        public int Estadia => DataCheckOut.Subtract(DataCheckIn).Days;
-
+        public int Estadia
+        {
+            get => DataCheckOut.Subtract(DataCheckIn).Days;
+        }
         
         public double ValorTotal
         {
             get
             {
-                double valorAdultos = QtdAdultos * QuartoSelecionado.ValorDiariaAdulto;
-                double valorCriancas = QtdCriancas * QuartoSelecionado.ValorDiariaCrianca;
+                double valor_adultos = QtdAdultos * QuartoSelecionado.ValorDiariaAdulto;
+                double valor_criancas = QtdCriancas * QuartoSelecionado.ValorDiariaCrianca;
 
-                return (valorAdultos + valorCriancas) * Estadia;
+                double total = (valor_adultos + valor_criancas) * Estadia;
+                return total;
             }
         }
     }

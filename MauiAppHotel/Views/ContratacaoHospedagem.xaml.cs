@@ -31,7 +31,7 @@ public partial class ContratacaoHospedagem : ContentPage
         dtpck_checkout.MinimumDate = dataSelecionada.AddDays(1);
     }
 
-    private async void Avancar_Clicked(object sender, EventArgs e)
+    private async void Button_Clicked(object sender, EventArgs e)
     {
         try
         {
@@ -44,8 +44,8 @@ public partial class ContratacaoHospedagem : ContentPage
             Hospedagem h = new Hospedagem
             {
                 QuartoSelecionado = (Quarto)pck_quarto.SelectedItem,
-                QtdAdultos = (int)stp_adultos.Value,
-                QtdCriancas = (int)stp_criancas.Value,
+                QtdAdultos = Convert.ToInt32(stp_adultos.Value),
+                QtdCriancas = Convert.ToInt32(stp_criancas.Value),
                 
                 DataCheckIn = (DateTime)dtpck_checkin.Date,
                 DataCheckOut = (DateTime)dtpck_checkout.Date
